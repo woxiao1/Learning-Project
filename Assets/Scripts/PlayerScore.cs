@@ -14,9 +14,8 @@ public class PlayerScore : MonoBehaviour
         score += 1;
         Scoretext.text = $"Score : {score}";
 
-        
+        Destroy(other.gameObject);
     }
-
 
 
 
