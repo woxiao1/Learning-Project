@@ -20,6 +20,7 @@ namespace Assets.Scripts
                 startTime = spawnTime;
             }
         }
+        
         private void CoinSpawn()
         {
             var randomX = Random.Range(-5f, 5f);
@@ -29,7 +30,4 @@ namespace Assets.Scripts
             newCoin.transform.position = newPosition;
         }
     }
-
-
-
 }

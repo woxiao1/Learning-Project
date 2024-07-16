@@ -569,7 +569,6 @@ GameObject:
   - component: {fileID: 749294994}
   - component: {fileID: 749294993}
   - component: {fileID: 749294992}
-  - component: {fileID: 749294996}
   - component: {fileID: 749294997}
   - component: {fileID: 749294999}
   - component: {fileID: 749294998}
@@ -648,21 +647,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &749294996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749294989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b13937f10c0996a4f88068b8f51d9672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  a: 0
-  b: 0
-  c: 0
 --- !u!114 &749294997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,7 +913,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aef53be3796b7478437c3a9979e5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 4227192887397588362, guid: c8ba0be4054e8f44bb33c6e69f962d7c, type: 3}
+  CoinPrefab: {fileID: 4227192887397588362, guid: c8ba0be4054e8f44bb33c6e69f962d7c, type: 3}
+  CoinManagerTransform: {fileID: 1821094260}
+  startTime: 0
+  spawnTime: 0.5
 --- !u!4 &1821094260
 Transform:
   m_ObjectHideFlags: 0
