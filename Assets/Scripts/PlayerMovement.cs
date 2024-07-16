@@ -23,7 +23,7 @@ namespace Assets.Scripts
         private Vector3 GetDirectionByAxis()
         {
             Vector3 direction = Vector3.zero;
-            direction.z = Input.GetAxis("Vertical");// -1 , 0 , 1
+            direction.z = Input.GetAxisRaw("Vertical");// -1 , 0 , 1
             direction.x = Input.GetAxisRaw("Horizontal");
 
             return direction;
