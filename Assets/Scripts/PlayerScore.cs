@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -10,6 +11,8 @@ public class PlayerScore : MonoBehaviour
     public int score;
     public TMP_Text EndGame;
     public GameObject StopSpawn;
+
+    public SpawnManager spawnManager;
 
     private void Start()
     {
@@ -31,22 +34,29 @@ public class PlayerScore : MonoBehaviour
     }
     private void Update ()
     {
-        
-        if(score >=100)
-        {
-            EndGame.gameObject.SetActive(true);
-            EndGame.text = $"You Win";
-            StopSpawn.SetActive(false);
-        } 
+        CheckWin();
+        CheckLose();
+    }
 
-        if(score <= -50)
+    private void CheckLose()
+    {
+        if (score <= -50)
         {
             EndGame.gameObject.SetActive(true);
             EndGame.text = $"You Lose";
-            StopSpawn.SetActive(false);
+
+            spawnManager.StopSpawn();
         }
     }
 
+    private void CheckWin()
+    {
+        if (score >= 100)
+        {
+            EndGame.gameObject.SetActive(true);
+            EndGame.text = $"You Win";
 
-
+            spawnManager.StopSpawn();
+        }
+    }
 }

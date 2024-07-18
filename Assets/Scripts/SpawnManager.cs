@@ -12,16 +12,32 @@ namespace Assets.Scripts
         public float startTime = 0;
         public float spawnTime = 0.5f;
         public float Percent;
+
+        public bool IsPlaying = true;
+        
         private void Update()
         {
+            if (IsPlaying)
+            {
+                HandleSpawn();
+            }
+        }
+
+        public void StopSpawn()
+        {
+            IsPlaying = false;
+        }
+
+        private void HandleSpawn()
+        {
             startTime -= Time.deltaTime;
-            if (startTime <=0)
+            if (startTime <= 0)
             {
                 Spawn();
                 startTime = spawnTime;
             }
         }
-        
+
         private void Spawn()
         {
             float randomX = Random.Range(-5f, 5f);
@@ -39,6 +55,5 @@ namespace Assets.Scripts
                 newSpawn.transform.position = newPosition;
             }
         }
-
     }
 }
