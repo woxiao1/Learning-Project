@@ -8,38 +8,74 @@ namespace Assets.Scripts
 {
     public class LearningCSharp : MonoBehaviour
     {
-        public int n;
-        private void Update()
+        public int ArrayLength = 100;
+        
+        private void Start()
         {
-            CompareEvenOdd(n);
+            // CompareEvenOdd(n);
+
+            int[] randomIntArray = GetRandomIntArray(ArrayLength, 1, 2000);
+
+            for (int i = 0; i < randomIntArray.Length; i++)
+            {
+                // 0 -> 99
+                int number = randomIntArray[i];
+                bool hasSquareRoot = CheckSquareRoot(number);
+                if (hasSquareRoot)
+                {
+                    Debug.Log($"So {number} co can bac 2");
+                }
+            }
         }
-        public void CompareEvenOdd(int n)
+
+        public bool CheckSquareRoot(int number)
         {
-            int Even = 0;
-            int Odd = 0;
-            int[] numbers = new int[n];
+            for (int i = 1; i < number/2; i++)
+            {
+                if (i * i == number)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public int[] GetRandomIntArray(int arrayLength,int randomMinValue,int randomMaxValue)
+        {
+            int[] numbers = new int[arrayLength];
             for (int i = 0; i < numbers.Length; i++)
             {
-                numbers[i] = Random.Range(1,6);
+                numbers[i] = Random.Range(randomMinValue,randomMaxValue);
             }
+
+            return numbers;
+        }
+        
+        public void CompareEvenOdd(int n) // 1000
+        {
+            int even = 0;
+            int odd = 0;
+            int[] numbers = GetRandomIntArray(n, -1000, 1000);
+            
             for (int i = 0; i < numbers.Length; i++)
             {
                 if (numbers[i] % 2 == 0)
                 {
-                    Even += numbers[i];
+                    even += numbers[i];
                 }
                 else
                 {
-                    Odd += numbers[i];
+                    odd += numbers[i];
                 }
             }
             //Debug.Log($"tong cac so chan la : {Even}");
             //Debug.Log($"tong cac so le la : {Odd}");
-            if (Even > Odd)
+            if (even > odd)
             {
                 Debug.Log($"tong cac so chan > tong cac so le ");
             }
-            else if (Even == Odd)
+            else if (even == odd)
             {
                 Debug.Log($"tong cac so chan = tong cac so le ");
             }
