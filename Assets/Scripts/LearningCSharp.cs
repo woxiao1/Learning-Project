@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -7,30 +8,45 @@ namespace Assets.Scripts
 {
     public class LearningCSharp : MonoBehaviour
     {
-        public int a = 0;
-        public int b = 1;
-        private void Start()
+        public int n;
+        private void Update()
         {
-            int previous = a;
-            int current = b;
-            int next = previous + current;
-            Debug.Log(giaitoancanbac2cuaA(a));
-            for (int i = 0; i <=100;i++)
-            {
-                Debug.Log(next);
-
-            }
+            CompareEvenOdd(n);
         }
-        public int giaitoancanbac2cuaA(int a)
+        public void CompareEvenOdd(int n)
         {
-            for (int i = 0; i < a/2; i++)
+            int Even = 0;
+            int Odd = 0;
+            int[] numbers = new int[n];
+            for (int i = 0; i < numbers.Length; i++)
             {
-                if (i * i == a )
+                numbers[i] = Random.Range(1,6);
+            }
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] % 2 == 0)
                 {
-                    return i;
+                    Even += numbers[i];
+                }
+                else
+                {
+                    Odd += numbers[i];
                 }
             }
-            return -1;
+            //Debug.Log($"tong cac so chan la : {Even}");
+            //Debug.Log($"tong cac so le la : {Odd}");
+            if (Even > Odd)
+            {
+                Debug.Log($"tong cac so chan > tong cac so le ");
+            }
+            else if (Even == Odd)
+            {
+                Debug.Log($"tong cac so chan = tong cac so le ");
+            }
+            else
+            {
+                Debug.Log($"tong cac so chan < tong cac so le ");
+            }
         }
     }
 }
